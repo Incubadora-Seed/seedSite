@@ -3,14 +3,15 @@ import Image from "next/image";
 export default function Header() {  
     return (
         <>
-            <header className="flex">
+            <header
+                className="fixed top-0 left-0 right-0 z-50 bg-white pl-4 flex border-b-4">
                 <Image
-                    src="/image-removebg-preview.png"
+                    src="/Logotipo-roxo (1).png"
                     alt="logo-incubaspace"
                     width={300}
                     height={100}
                 />
-                <div className="flex ml-10 gap-14 items-center">
+                <div className="flex ml-14 gap-14 items-center">
                     <a href="#" className="group transition duration-300">
                         Eventos
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
@@ -39,9 +40,7 @@ export default function Header() {
                     </div>
                 </div>
             </header>
-            <div
-                className="bg-black w-full h-0.5 mt-0.5"
-            />
+            
 
         </>
     );

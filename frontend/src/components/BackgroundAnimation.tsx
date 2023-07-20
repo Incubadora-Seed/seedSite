@@ -46,8 +46,13 @@ const BackgroundAnimation: React.FC = () => {
   }, []);
 
   return (
-    <div id='canvas-container'>
-        <canvas ref={canvasRef}/>
+    <div className='relative z-0'>
+      <canvas
+        width={20}
+        height={17}
+        ref={canvasRef}
+        id='canvas'
+      />
     </div>
   );
 };
