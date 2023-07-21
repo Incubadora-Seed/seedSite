@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function TargetHit() {
     return (
-        <div className="inline-block">
+        <div className="flex">
             <div>
                 <Image
                     width={400}
@@ -12,10 +12,10 @@ export default function TargetHit() {
                 />
             </div>
             <div
-                className='inline-block'>
+                className='flex items-center w-1/2 ml-[30vh]'>
                 <h1
-                    className='text-6xl font-bold text-left'>
-                    Escolha Seed e Acerte no Alvo
+                    className='text-7xl font-bold text-center'>
+                    Escolha Seed e acerte no alvo
                 </h1>  
             </div>
         </div>

@@ -22,10 +22,6 @@ const BackgroundAnimation: React.FC = () => {
       return Math.floor(192 + 64 * Math.cos((x * x - y * y) / 300 + t));
     };
 
-    const G = (x: number, y: number, t: number) => {
-      return 0; // Defina o componente verde (g) como 0
-    };
-
     const B = (x: number, y: number, t: number) => {
       return Math.floor(192 + 64 * Math.sin(5 * Math.sin(t / 9) + ((x - 100) * (x - 100) + (y - 100) * (y - 100)) / 1100));
     };
@@ -46,10 +42,11 @@ const BackgroundAnimation: React.FC = () => {
   }, []);
 
   return (
-    <div className='relative z-0'>
+    <div className='relative overflow-hidden z-0'>
       <canvas
+        className=''
         width={20}
-        height={17}
+        height='10%'
         ref={canvasRef}
         id='canvas'
       />
