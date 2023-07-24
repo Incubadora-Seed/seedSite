@@ -7,7 +7,7 @@ export default function TargetHit() {
                 <Image
                     width={400}
                     height={400}
-                    src='/target-purple.png'
+                    src='/target.png'
                     alt='target-image'
                 />
             </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {  
     return (
@@ -11,7 +12,7 @@ export default function Header() {
                     width={300}
                     height={100}
                 />
-                <div className="flex ml-14 gap-14 items-center">
+                <div className="flex ml-auto mr-4 gap-14 items-center">
                     <a href="#" className="group transition duration-300">
                         Eventos
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
@@ -36,12 +37,10 @@ export default function Header() {
                         className="flex bg-sky-500 pb-4 pt-4 pr-16 pl-16 rounded text-white font-bold
                         hover:bg-sky-600 transition duration-300 cursor-pointer"
                     >
-                        <a href="http://localhost:3000/login">Log In</a>
+                        <Link href="/login">Log In</Link>
                     </div>
                 </div>
             </header>
-            
-
         </>
     );
 }
