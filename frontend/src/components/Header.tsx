@@ -33,12 +33,13 @@ export default function Header() {
                         Suporte
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
                     </a>
-                    <div
+                    <Link 
+                        href="/login"
                         className="flex bg-sky-500 pb-4 pt-4 pr-16 pl-16 rounded text-white font-bold
                         hover:bg-sky-600 transition duration-300 cursor-pointer"
                     >
-                        <Link href="/login">Log In</Link>
-                    </div>
+                        Log In
+                    </Link>
                 </div>
             </header>
         </>

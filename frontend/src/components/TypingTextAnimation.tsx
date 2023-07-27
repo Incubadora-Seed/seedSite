@@ -11,7 +11,7 @@ export default function TypingTextAnimation() {
                     1000,
                     'A persistência vence desafios',
                     1000,
-                    'O networking abre as portas',
+                    'O networking é chave do sucesso',
                     1000,
                     'A sorte favorece os corajosos',
                     1000

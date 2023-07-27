@@ -2,12 +2,12 @@ import Image from 'next/image'
 
 export default function TargetHit() {
     return (
-        <div className="flex">
-            <div>
+        <div className="flex mt-20">
+            <div className='ml-8'>
                 <Image
                     width={400}
                     height={400}
-                    src='/target.png'
+                    src='/purple-target.png'
                     alt='target-image'
                 />
             </div>
