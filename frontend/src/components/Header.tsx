@@ -7,8 +7,8 @@ export default function Header() {
             <header
                 className="fixed top-0 left-0 right-0 z-50 bg-white pl-4 flex border-b-4">
                 <Image
-                    src="/Logotipo-roxo (1).png"
-                    alt="logo-incubaspace"
+                    src="/logo-roxa.png"
+                    alt="logo-seed"
                     width={300}
                     height={100}
                 />

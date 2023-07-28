@@ -11,14 +11,14 @@ export default function TypingTextAnimation() {
                     1000,
                     'A persistência vence desafios',
                     1000,
-                    'O networking é chave do sucesso',
+                    'Networking fortalece vinculos',
                     1000,
                     'A sorte favorece os corajosos',
                     1000
                 ]}
                 wrapper="span"
                 speed={10}
-                style={{ fontSize: '4rem', display: 'inline-block' , marginLeft: '30vh', marginTop: '50vh'}}
+                style={{ fontSize: '4rem', display: 'inline-block' , marginLeft: '30vh', marginTop: '50vh', marginBottom: '50vh'}}
                 repeat={Infinity}
             />
         </>
