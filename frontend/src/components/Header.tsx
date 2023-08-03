@@ -13,26 +13,26 @@ export default function Header() {
                     height={100}
                 />
                 <div className="flex ml-auto mr-4 gap-14 items-center">
-                    <a href="#" className="group transition duration-300">
+                    <Link href="#" className="group transition duration-300">
                         Eventos
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                    </a>
-                    <a href="#" className="group transition duration-300">
+                    </Link>
+                    <Link href="/editais" className="group transition duration-300">
                         Processos
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                    </a>
-                    <a href="#" className="group transition duration-300">
+                    </Link>
+                    <Link href="#" className="group transition duration-300">
                         Quem Somos
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                    </a>
-                    <a href="#" className="group transition duration-300">
+                    </Link>
+                    <Link href="#" className="group transition duration-300">
                         Networking
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                    </a>
-                    <a href="#" className="group transition duration-300">
+                    </Link>
+                    <Link href="#" className="group transition duration-300">
                         Suporte
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
-                    </a>
+                    </Link>
                     <Link 
                         href="/login"
                         className="flex bg-sky-500 pb-4 pt-4 pr-16 pl-16 rounded text-white font-bold
