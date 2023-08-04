@@ -13,7 +13,6 @@ export default function Home() {
       <TextBackgroundAnimation />
       <TargetHit />
       <TypingTextAnimation />
-      <LatestEvents />
       <WhoWeAre />
       <Networking />
     </>

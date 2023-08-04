@@ -41,7 +41,7 @@ const BackgroundAnimation: React.FC = () => {
         }
       }
 
-      t = t + 0.05;
+      t = t + 0.02;
       window.requestAnimationFrame(run);
     };
 

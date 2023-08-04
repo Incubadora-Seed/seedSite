@@ -18,7 +18,7 @@ export default function Header() {
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
                     </Link>
                     <Link href="/editais" className="group transition duration-300">
-                        Processos
+                        Editais
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
                     </Link>
                     <Link href="#" className="group transition duration-300">

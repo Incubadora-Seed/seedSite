@@ -14,7 +14,7 @@ export default function Editals() {
                     height={100}
                     title="Editais"
                 />  
-                <h1 className="text-xl">
+                <h1 className="md:text-xl xl:text-4xl">
                     Editais
                 </h1>
             </div>

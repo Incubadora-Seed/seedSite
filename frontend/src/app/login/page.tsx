@@ -25,7 +25,7 @@ export default function LoginPage() {
                     <label
                         htmlFor=""
                         className="flex flex-col pt-4 text-lg">
-                        Password
+                        Senha
                     </label>
                     <input type="password" name="password-field" id="password-field"
                         className="bg-gray-300 flex flex-col w-full px-2 py-2 text-xl" />
