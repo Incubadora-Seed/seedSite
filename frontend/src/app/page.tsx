@@ -11,7 +11,6 @@ export default function Home() {
     <>
       <Header />
       <TextBackgroundAnimation />
-      <TargetHit />
       <TypingTextAnimation />
       <WhoWeAre />
       <Networking />

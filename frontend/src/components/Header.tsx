@@ -15,28 +15,28 @@ export default function Header() {
                 <div className="flex ml-auto mr-4 gap-14 items-center">
                     <Link href="#" className="group transition duration-300">
                         Eventos
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
                     </Link>
                     <Link href="/editais" className="group transition duration-300">
                         Editais
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
                     </Link>
                     <Link href="#" className="group transition duration-300">
                         Quem Somos
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
                     </Link>
                     <Link href="#" className="group transition duration-300">
                         Networking
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
                     </Link>
                     <Link href="#" className="group transition duration-300">
                         Suporte
-                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"></span>
+                        <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
                     </Link>
                     <Link 
                         href="/login"
-                        className="flex bg-sky-500 pb-4 pt-4 pr-16 pl-16 rounded text-white font-bold
-                        hover:bg-sky-600 transition duration-300 cursor-pointer"
+                        className="flex bg-purple-500 pb-4 pt-4 pr-16 pl-16 rounded text-white font-bold
+                        hover:bg-purple-700 transition duration-300 cursor-pointer"
                     >
                         Log In
                     </Link>

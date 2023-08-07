@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function WhoWeAre() {
   const images = [
     {
-        src: "/alessandra.jpg",
+        src: "/alessandra-1.jpg",
         alt: "Imagem Alessandra",
         title: "Alessandra Cristina Santos Akkari",
         description: "Engenheira de Produção e Pesquisadora",
