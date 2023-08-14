@@ -5,6 +5,8 @@ import WhoWeAre from "@/components/WhoWeAre"
 import Networking from "@/components/Networking"
 import TextBackgroundAnimation from "@/components/TextBackgroundAnimation"
 import Header from "@/components/Header"
+import Support from "@/components/Support"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <TypingTextAnimation />
       <WhoWeAre />
       <Networking />
+      <Support />
+      <Footer />
     </>
   )
 }
