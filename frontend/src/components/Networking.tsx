@@ -21,26 +21,26 @@ export default function Networking() {
       </div>
     </div>
       <div className="flex items-center justify-center p-10">
-      <div className="flex-1">
-          <h2 className="text-7xl font-bold mb-4">
-              Engage com outras empresas do Brasil todo
-          </h2>
-          <p className="text-2xl text-gray-600">
-              Esteja você procurando construir sua comunidade local de startups, interagir com as principais startups
-              do sul do Brasil ou investir em startups que estão causando impacto em seu setor, Seed tem esses contatos
-              para você se envolver com startups que se alinham aos seus objetivos de negócios.
-          </p>
-      </div>
-      <div className="flex-1">
-          <Image
-              src="/speaking.png"
-              alt="Imagem Responsiva"
-              width={800}
-              height={800}
-              className="max-w-full h-auto"
-          />
-      </div>
-  </div>
+        <div className="flex-1">
+            <h2 className="sm:text-4xl lg:text-5xl xl:text-7xl font-bold mb-4">
+                Engage com outras empresas do Brasil todo
+            </h2>
+            <p className="sm:text-md md:text-lg lg:text-xl xl:text-2xl text-gray-600">
+                Esteja você procurando construir sua comunidade local de startups, interagir com as principais startups
+                do sul do Brasil ou investir em startups que estão causando impacto em seu setor, Seed tem esses contatos
+                para você se envolver com startups que se alinham aos seus objetivos de negócios.
+            </p>
+        </div>
+        <div className="flex-1">
+            <Image
+                src="/speaking.png"
+                alt="Imagem Responsiva"
+                width={800}
+                height={800}
+                className="max-w-full h-auto"
+            />
+        </div>
+       </div>
     </>
   );
 }

@@ -61,7 +61,7 @@ export default function WhoWeAre() {
   return (
     <div className="text-center">
       <h1 className="text-4xl m-auto">Quem Somos</h1>
-      <div className="grid gap-12 grid-cols-3 w-full mx-auto p-4">
+      <div className="grid gap-12 md:grid-cols-1 xl:grid-cols-3 w-full mx-auto p-4">
         {images.map((image, index) => (
           <div key={index} className="m-auto text-center">
             <div className="flex items-center justify-center">

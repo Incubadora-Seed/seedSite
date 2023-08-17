@@ -4,7 +4,7 @@ export default function FormPage() {
   return (
     <>
       <Header />
-      <section className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <section className="bg-gray-100 min-h-screen flex items-center justify-center ">
         <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
           <h1 className="text-4xl font-bold text-center mb-6">
             Formulário de Contato
@@ -21,7 +21,7 @@ export default function FormPage() {
                 id="email"
                 required
                 placeholder="E-mail"
-                className="input"
+                className="input p-2"
               />
             </div>
             <div className="flex flex-col">
@@ -31,7 +31,7 @@ export default function FormPage() {
                 id="subject"
                 required
                 placeholder="Assunto"
-                className="input"
+                className="input p-2"
               />
             </div>
             <div className="flex flex-col">
@@ -40,8 +40,8 @@ export default function FormPage() {
                 id="message"
                 required
                 placeholder="Mensagem"
-                className="input"
-              ></textarea>
+                className="input p-2"
+              />
             </div>
             <input
               type="hidden"
@@ -50,7 +50,7 @@ export default function FormPage() {
             />
             <button
               type="submit"
-              className="text-white px-4 py-2 rounded button bg-blue-500 hover:bg-blue-600"
+              className="text-white px-4 py-2 rounded button bg-purple-500 hover:bg-purple-700"
             >
               Enviar
             </button>
