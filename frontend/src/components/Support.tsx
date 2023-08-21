@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Support() {
   return (
-    <div className="h-[80vh] px-6 md:px-12 lg:px-20 xl:px-32">
+    <div className="h-[40vh] px-6 md:px-12 lg:px-20 xl:px-32">
       <div className="mt-16 md:mt-24 text-center">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
           Precisa de suporte ou quer nos deixar uma mensagem?

@@ -1,6 +1,4 @@
-import TargetHit from "@/components/TargetHit"
 import TypingTextAnimation from "@/components/TypingTextAnimation"
-import LatestEvents from "@/components/LatestEvents"
 import WhoWeAre from "@/components/WhoWeAre"
 import Networking from "@/components/Networking"
 import TextBackgroundAnimation from "@/components/TextBackgroundAnimation"
@@ -14,6 +12,7 @@ export default function Home() {
       <Header />
       <TextBackgroundAnimation />
       <TypingTextAnimation />
+      
       <WhoWeAre />
       <Networking />
       <Support />

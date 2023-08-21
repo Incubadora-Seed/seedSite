@@ -5,10 +5,8 @@ export default function TextBackgroundAnimation() {
         <>
             <BackgroundAnimation />
             <div
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-10xl font-bold text-center">
-                <h1 className="font-bold text-white">
-                    Venha incubar sua empresa com a gente
-                </h1>
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-6xl sm:text-8xl md:text-10xl lg:text-12xl xl:text-14xl font-bold text-center">
+                <span>Venha incubar sua empresa com a gente</span>
             </div>
         </>
     );
