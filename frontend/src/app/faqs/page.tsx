@@ -42,7 +42,14 @@ const FAQs: React.FC = () => {
       question: "Como posso participar?",
       answer: "Você pode participar..."
     },
-    // Adicione mais perguntas e respostas aqui
+    {
+      question: "teste", 
+      answer: "teste1"
+    },
+    {
+      question: "teste2",
+      answer: "teste2"
+    }
   ];
 
     return (
