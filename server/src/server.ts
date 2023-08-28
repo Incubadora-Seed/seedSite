@@ -1,10 +1,10 @@
 import 'dotenv/config'
 import fastify from 'fastify'
-import { userRoutes } from './routes/users';
+import { companyRoutes } from './routes/company';
 
 const server = fastify()
 
-server.register(userRoutes)
+server.register(companyRoutes)
 
 server
   .listen({
