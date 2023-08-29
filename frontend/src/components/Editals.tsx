@@ -17,6 +17,9 @@ export default function Editals() {
                 <h1 className="md:text-xl xl:text-4xl">
                     Editais
                 </h1>
+                <Link href="localhost:3333/download/dummy.pdf">
+                    Download Arquivo
+                </Link>
             </div>
         </>
     )

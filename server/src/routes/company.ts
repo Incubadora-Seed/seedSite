@@ -8,7 +8,7 @@ try {
         user: process.env.DB_USER,
         host: process.env.DB_HOST,
         database: process.env.DB_DATABASE,
-        password: process.env.DB_PASSWORD,
+        password: process.env.DB_PASS,
         port: Number(process.env.DB_PORT),
     });
 } catch (error) {
@@ -26,7 +26,7 @@ export async function companyRoutes(server: FastifyInstance) {
         return rows;
     });
 
-    server.get('/company=:cnpj', async (request, reply) => {
+    server.get('/company/:cnpj', async (request, reply) => {
         const paramsSchema = z.object({
             cnpj: z.string(),
         });
