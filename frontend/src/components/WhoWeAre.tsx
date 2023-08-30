@@ -70,7 +70,7 @@ export default function WhoWeAre() {
   return (
     <div className="text-center">
       <h1 className="text-4xl m-auto font-bold">Quem Somos</h1>
-      <div className="grid gap-12 md:grid-cols-1 xl:grid-cols-3 w-full mx-auto my-12 p-4">
+      <div className="grid gap-12 md:grid-cols-1 xl:grid-cols-3 w-full mx-auto my-12 p-8">
         {contributors.map((contributor, index) => (
           <div key={index} className="m-auto text-left flex items-center">
             <div className="flex items-center justify-start">

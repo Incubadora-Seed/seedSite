@@ -14,7 +14,7 @@ export default function Header() {
                       height={100}
                   />
                 </Link>
-                <div className="flex ml-auto mr-4 gap-14 items-center">
+                <div className="flex ml-auto mr-8 gap-14 items-center">
                     <Link href="#" className="group transition duration-300">
                         Eventos
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
@@ -30,13 +30,6 @@ export default function Header() {
                     <Link href="#" className="group transition duration-300">
                         Suporte
                         <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
-                    </Link>
-                    <Link 
-                        href="/login"
-                        className="flex bg-purple-500 pb-4 pt-4 pr-16 pl-16 rounded text-white font-bold
-                        hover:bg-purple-700 transition duration-300 cursor-pointer"
-                    >
-                        Log In
                     </Link>
                 </div>
             </header>
