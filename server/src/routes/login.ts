@@ -15,8 +15,6 @@ export async function loginRoutes(server: FastifyInstance) {
         console.log("teste");
     
         if (username === adminUsername && password === adminPassword) {
-            // Implemente a geração de um token JWT aqui
-            // Envie o token para o cliente
             reply.status(200).send({ message: 'Login successful' });
         } else {
             reply.status(401).send({ message: 'Invalid credentials' });
