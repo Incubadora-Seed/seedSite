@@ -1,5 +1,4 @@
-import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
-import { Pool } from 'pg';
+import { FastifyInstance } from 'fastify';
 
 interface LoginRequestBody {
     username: string;
@@ -7,31 +6,20 @@ interface LoginRequestBody {
 }
 
 export async function loginRoutes(server: FastifyInstance) {
-    const pool = new Pool({
-        connectionString: process.env.DATABASE_URL,
-        port: Number(process.env.DB_PORT)
-    });
+    const adminUsername = process.env.ADMIN_USERNAME;
+    const adminPassword = process.env.ADMIN_PASSWORD;
 
-    server.post('/login', async (request: FastifyRequest, reply: FastifyReply) => {
-        const { username, password } = request.body as LoginRequestBody;
+    server.post('/login', async (request, reply) => {
+        const { username, password }: LoginRequestBody = request.body as LoginRequestBody;
 
-        try {
-            const client = await pool.connect();
-            const result = await client.query(
-                'SELECT * FROM users WHERE username = $1 AND password = $2',
-                [username, password]
-            );
-
-            client.release();
-
-            if (result.rowCount === 1) {
-                return { success: true, message: 'Login successful' };
-            } else {
-                return { success: false, message: 'Invalid credentials' };
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
-            return reply.status(500).send({ error: 'Internal server error' });
+        console.log("teste");
+    
+        if (username === adminUsername && password === adminPassword) {
+            // Implemente a geração de um token JWT aqui
+            // Envie o token para o cliente
+            reply.status(200).send({ message: 'Login successful' });
+        } else {
+            reply.status(401).send({ message: 'Invalid credentials' });
         }
     });
 }
