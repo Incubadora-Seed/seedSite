@@ -4,6 +4,8 @@ import { companyRoutes } from './routes/company';
 import { loginRoutes } from './routes/login';
 import { uploadRoutes } from './routes/upload';
 import { downloadRoutes } from './routes/download';
+import { resolve } from 'path';
+import Multipart from '@fastify/multipart';
 
 const server = fastify()
 
@@ -11,6 +13,11 @@ server.register(companyRoutes)
 server.register(loginRoutes)
 server.register(uploadRoutes)
 server.register(downloadRoutes)
+server.register(Multipart)
+server.register(require('@fastify/static'), {
+  root: resolve(__dirname, '..', 'uploads'),
+  prefix: '/uploads',
+})
 
 server
   .listen({
