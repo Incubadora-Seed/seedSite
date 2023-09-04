@@ -43,7 +43,7 @@ export async function companyRoutes(server: FastifyInstance) {
         return rows[0];
     });
 
-    server.post('/empresas', async (request, reply) => {
+    server.post('/company', async (request, reply) => {
         const bodySchema = z.object({
             id: z.string(),
             nome_fantasia: z.string(),
@@ -66,7 +66,7 @@ export async function companyRoutes(server: FastifyInstance) {
     });
     
 
-    server.put('/users/:cnpj', async (request, reply) => {
+    server.put('/company/:cnpj', async (request, reply) => {
 
         const paramsSchema = z.object({
             cnpj: z.string(),
@@ -93,7 +93,7 @@ export async function companyRoutes(server: FastifyInstance) {
         return rows[0];
     });
 
-    server.delete('/users/:cnpj', async (request, reply) => {
+    server.delete('/company/:cnpj', async (request, reply) => {
         const paramsSchema = z.object({
             cnpj: z.string(),
         });
@@ -104,9 +104,9 @@ export async function companyRoutes(server: FastifyInstance) {
         const { rowCount } = await pool.query(query, [cnpj]);
 
         if (rowCount === 0) {
-            return reply.status(404).send('User not found');
+            return reply.status(404).send('Empresa não encontrada');
         }
 
-        return 'User deleted';
+        return 'Empresa deletada';
     });
 }
