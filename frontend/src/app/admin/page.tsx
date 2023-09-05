@@ -22,6 +22,7 @@ export default function AdminPage() {
       });
 
       if (response.status === 200) {
+        console.log("chamou")
         router.push('/db');
       } else {
         console.log('Login inválido!');
@@ -45,6 +46,7 @@ export default function AdminPage() {
           className="w-full p-2 mb-2 border rounded"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
         <div className="relative">
           <input

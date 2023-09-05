@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import fastify from 'fastify'
+import cors from '@fastify/cors'
 import { companyRoutes } from './routes/company';
 import { loginRoutes } from './routes/login';
 import { uploadRoutes } from './routes/upload';
@@ -17,6 +18,10 @@ server.register(Multipart)
 server.register(require('@fastify/static'), {
   root: resolve(__dirname, '..', 'uploads'),
   prefix: '/uploads',
+})
+
+server.register(cors, {
+  origin: true,
 })
 
 server

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react';
+import { api } from '@/lib/api';
 
 export default function UploadForm() {
   const [file, setFile] = useState<File | null>(null);
@@ -18,12 +19,10 @@ export default function UploadForm() {
       formData.append('file', file);
 
       try {
-        const response = await fetch('/upload', {
-          method: 'POST',
-          body: formData,
-        });
+        const response = await api.post('/upload', formData);
+        console.log(formData)
 
-        if (response.ok) {
+        if (response.status === 200) {
           alert('Upload do arquivo PDF concluído com sucesso!');
         } else {
           alert('Erro ao fazer o upload do arquivo PDF.');
