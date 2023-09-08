@@ -22,9 +22,9 @@ export default function AdminPage() {
       });
 
       if (response.status === 200) {
-        console.log("chamou")
         router.push('/db');
       } else {
+        alert('Login inválido!');
         console.log('Login inválido!');
       }
     } catch (error) {

@@ -5,22 +5,43 @@ import { api } from '@/lib/api';
 
 export default function UploadForm() {
   const [file, setFile] = useState<File | null>(null);
+  const fileType=['application/pdf'];
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
     if (selectedFile) {
-      setFile(selectedFile);
+      if (selectedFile && fileType.includes(selectedFile.type)) {
+        setFile(selectedFile);
+        console.log("Selecionado arquivo PDF")
+      } else {
+        alert('Por favor, selecione um arquivo PDF.');
+      }
     }
   };
 
   const handleUpload = async () => {
     if (file) {
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', file)
 
       try {
-        const response = await api.post('/upload', formData);
-        console.log(formData)
+        console.log("Tentando enviar arquivo PDF para o servidor");
+        console.log("Arquivo PDF: ", file);
+        console.log("Form Data: ", formData);
+        let response = {
+          status: 190
+        };
+        try {
+          response = await api.post('/upload', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+          });
+          console.log("Arquivo PDF enviado para o servidor");
+        } catch (e) {
+          console.error(e)
+        }
+
 
         if (response.status === 200) {
           alert('Upload do arquivo PDF concluído com sucesso!');

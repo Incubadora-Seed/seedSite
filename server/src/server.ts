@@ -6,19 +6,20 @@ import { loginRoutes } from './routes/login';
 import { uploadRoutes } from './routes/upload';
 import { downloadRoutes } from './routes/download';
 import { resolve } from 'path';
-import Multipart from '@fastify/multipart';
+import fastifyMultipart from '@fastify/multipart';
 
-const server = fastify()
+export const server = fastify()
 
+server.register(fastifyMultipart)
 server.register(companyRoutes)
 server.register(loginRoutes)
 server.register(uploadRoutes)
 server.register(downloadRoutes)
-server.register(Multipart)
 server.register(require('@fastify/static'), {
   root: resolve(__dirname, '..', 'uploads'),
   prefix: '/uploads',
 })
+
 
 server.register(cors, {
   origin: true,
