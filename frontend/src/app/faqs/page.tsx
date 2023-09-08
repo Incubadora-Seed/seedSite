@@ -49,6 +49,10 @@ const FAQs: React.FC = () => {
     {
       question: "teste2",
       answer: "teste2"
+    },
+    {
+      question: "teste2",
+      answer: "teste2"
     }
   ];
 

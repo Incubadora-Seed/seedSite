@@ -4,10 +4,6 @@ import React, { useState } from 'react';
 import { api } from '@/lib/api';
 import { useRouter } from 'next/navigation';
 
-export const metadata = {
-  title: 'Seed Admin - IFSul',
-};
-
 export default function AdminPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
