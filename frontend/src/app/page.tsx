@@ -13,9 +13,18 @@ export default function Home() {
       <TextBackgroundAnimation />
       <TypingTextAnimation />
       
-      <WhoWeAre />
-      <Networking />
-      <Support />
+      <section id="whoWeAre">
+        <WhoWeAre />
+      </section>
+      
+      <section id="networking">
+        <Networking />
+      </section>
+      
+      <section id="support">
+        <Support />
+      </section>
+
       <Footer />
     </>
   )

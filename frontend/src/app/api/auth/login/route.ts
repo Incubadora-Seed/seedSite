@@ -1,27 +1,26 @@
-import { withIronSession } from 'iron-session';
+import { api } from '@/lib/api'
+import { NextRequest, NextResponse } from 'next/server'
 
-async function handler(req, res) {
-  const { username, password } = req.body;
+export async function GET(request: NextRequest) {
+  const { searchParams } = new URL(request.url) // URLSearchParams object
 
-  // Verificar as credenciais do administrador
-  const adminUsername = process.env.ADMIN_USERNAME;
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const code = searchParams.get('code') // GitHub OAuth code from GitHub redirect URL
 
-  if (username === adminUsername && password === adminPassword) {
-    // Autenticação bem-sucedida, criar a sessão
-    req.session.set('user', { isAdmin: true }); // Pode incluir mais informações do usuário aqui
-    await req.session.save();
+  const redirectTo = request.cookies.get('redirectTo')?.value // Redirect URL from cookie
 
-    return res.status(200).send({ message: 'Login bem-sucedido' });
-  } else {
-    return res.status(401).send({ message: 'Credenciais inválidas' });
-  }
+  const registerResponse = await api.post('/register', {
+    code,
+  }) // Register user with GitHub OAuth code
+
+  const { token } = registerResponse.data // User's token
+
+  const redirectURL = redirectTo ?? new URL('/', request.url) // Redirect to home page
+
+  const cookieExpiresInSeconds = 60 * 60 * 24 * 30
+
+  return NextResponse.redirect(redirectURL, { // Redirect to home page
+    headers: {
+      'Set-Cookie': `token=${token}; Path=/; max-age=${cookieExpiresInSeconds};`, // Set token cookie
+    },
+  })
 }
-
-export default withIronSession(handler, {
-  password: process.env.SECRET_COOKIE_PASSWORD,
-  cookieName: 'seed-session',
-  cookieOptions: {
-    secure: process.env.NODE_ENV === 'production',
-  },
-});

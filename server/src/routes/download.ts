@@ -7,22 +7,18 @@ interface RouteParams {
 }
 
 export async function downloadRoutes(server: FastifyInstance) {
-    server.get('/download/:filename', async (request, reply) => {
+    server.get('/download', async (request, reply) => {
         try {
-            const params = request.params as RouteParams;
-            const filename = params.filename;
-            const filePath = path.join(__dirname, '..', 'uploads', filename);
+            const pdfDirectory = path.join(__dirname, '..', 'uploads');
+            fs.readdir(pdfDirectory, (err, files) => {
+                if (err) {
+                    console.error(err);
+                    return reply.status(500).send({ error: 'Erro ao ler os arquivos PDF' });
+                }
 
-            const fileExists = fs.existsSync(filePath);
-            if (!fileExists) {
-                return reply.status(404).send({ error: 'File not found' });
-            }
-
-            reply.header('Content-Disposition', `attachment; filename="${filename}"`);
-            reply.type('application/pdf');
-
-            const fileStream = fs.createReadStream(filePath);
-            reply.send(fileStream); // Usando o método send para enviar o arquivo
+                const pdfFiles = files.filter(file => file.endsWith('.pdf'));
+                reply.send({ pdfFiles });
+            });
         } catch (error) {
             console.error('Error during download:', error);
             return reply.status(500).send({ error: 'Internal server error' });
