@@ -6,30 +6,28 @@ import { useEffect } from 'react';
 
 export default function Header() {  
 
+  //smooth scroll function
   useEffect(() => {
-    // Função para rolar suavemente para a seção correspondente
     const smoothScroll = (targetId: string) => {
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         window.scrollTo({
-          top: targetElement.offsetTop - 100, // Ajuste o valor conforme necessário
+          top: targetElement.offsetTop - 100, //Speed = If higher, slower. If lower, faster
           behavior: "smooth"
         });
       }
     }
 
-    // Adiciona o evento de clique aos links
+    // Add smooth scrolling to all links
     const links = document.querySelectorAll('.smooth-scroll');
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        const targetId = e.currentTarget?.getAttribute('data-target');
-        if (targetId) {
-          smoothScroll(targetId);
-        }
+        const targetId = e.target?.getAttribute('data-target');
+        smoothScroll(targetId);
       });
     });
-  }, []); // Executa este efeito apenas uma vez
+  }, []); // Empty array ensures that effect is only run on mount
 
   return (
     <>
@@ -44,24 +42,26 @@ export default function Header() {
           />
         </Link>
         <div className="flex ml-auto mr-8 gap-14 items-center">
-          <Link href="#" className="group transition duration-300 smooth-scroll" data-target="whoWeAre">
-            Eventos
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
-          </Link>
-          <Link href="/editais" className="group transition duration-300 smooth-scroll" data-target="networking">
+          <Link href="/editais" className="group transition duration-300 smooth-scroll text-sm md:text-base lg:text-lg">
             Editais
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
-          <Link href="#" className="group transition duration-300 smooth-scroll" data-target="support">
+          <Link href="/#networking" passHref className="group transition duration-300 smooth-scroll text-sm md:text-base lg:text-lg" data-target="networking">
             Network
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
-          <Link href="#" className="group transition duration-300 smooth-scroll" data-target="support">
+          <Link href="/#support" passHref className="group transition duration-300 smooth-scroll text-sm md:text-base lg:text-lg" data-target="support">
             Suporte
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
         </div>
       </header>
+
+      <style jsx>{`
+        .group-hover\:max-w-full:hover {
+          max-width: 100%;
+        }
+      `}</style>
     </>
   );
 }
