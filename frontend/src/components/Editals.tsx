@@ -20,6 +20,7 @@ export default function Editals() {
 
   return (
     <>
+      <Header />
       <div className="flex ms-[20vh] items-end mt-[20vh]">
         <Image
           src="/editals.png"
