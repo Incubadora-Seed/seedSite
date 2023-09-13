@@ -1,12 +1,16 @@
 'use client'
 
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { api } from '@/lib/api';
+import { LocalStorage } from 'node-localstorage';
+
+const localStorage = new LocalStorage('./scratch');
 
 export default function UploadForm() {
-
   const [file, setFile] = useState<File | null>(null);
-  const fileType=['application/pdf'];
+  const fileType = ['application/pdf'];
+  const router = useRouter();
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
@@ -22,27 +26,28 @@ export default function UploadForm() {
 
   const handleUpload = async () => {
     if (file) {
+      const isLoggedIn = localStorage.getItem('token');
+
+      if (!isLoggedIn) {
+        router.push('/admin');
+        return;
+      }
+
       const formData = new FormData();
-      formData.append('file', file)
+      formData.append('file', file);
 
       try {
         console.log("Tentando enviar arquivo PDF para o servidor");
         console.log("Arquivo PDF: ", file);
         console.log("Form Data: ", formData);
-        let response = {
-          status: 190
-        };
-        try {
-          response = await api.post('/upload', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-          });
-          console.log("Arquivo PDF enviado para o servidor");
-        } catch (e) {
-          console.error(e)
-        }
 
+        const response = await api.post('/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+
+        console.log("Arquivo PDF enviado para o servidor");
 
         if (response.status === 200) {
           alert('Upload do arquivo PDF concluído com sucesso!');
