@@ -26,6 +26,7 @@
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "fastify": "^4.22.2",
+    "fastify-static": "^4.7.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.3",
     "zod": "^3.21.4"
