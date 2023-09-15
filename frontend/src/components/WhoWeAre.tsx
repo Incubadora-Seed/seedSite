@@ -78,7 +78,7 @@ export default function WhoWeAre() {
                 src={contributor.src}
                 alt={contributor.alt}
                 width={200}
-                height={150}
+                height={200}
                 className="rounded-full mt-0" />
             </div>
             <div className="ml-4">

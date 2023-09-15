@@ -1,16 +1,24 @@
 'use client'
 
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
-import { LocalStorage } from 'node-localstorage';
-
-const localStorage = new LocalStorage('./scratch');
 
 export default function UploadForm() {
   const [file, setFile] = useState<File | null>(null);
   const fileType = ['application/pdf'];
   const router = useRouter();
+
+  const useCustomLocalStorage = (key: string) => {
+    const [value, setValue] = useState(localStorage.getItem(key));
+  
+    const setItem = (newValue: any) => {
+      localStorage.setItem(key, newValue);
+      setValue(newValue);
+    };
+  
+    return [value, setItem];
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];

@@ -56,12 +56,6 @@ export default function Header() {
           </Link>
         </div>
       </header>
-
-      <style jsx>{`
-        .group-hover\:max-w-full:hover {
-          max-width: 100%;
-        }
-      `}</style>
     </>
   );
 }
