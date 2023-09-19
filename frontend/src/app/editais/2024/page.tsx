@@ -8,7 +8,7 @@ export default function Editals() {
   const [pdfFiles, setPdfFiles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3333/download/2023')
+    fetch('http://localhost:3333/download/2024')
       .then(response => response.json())
       .then(data => {
         setPdfFiles(data.pdfFiles)

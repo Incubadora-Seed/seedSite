@@ -4,14 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Header from './Header';
 
-export default function Editals() {
-  const [pdfFiles, setPdfFiles] = useState([]);
+export default function Editais() {
+  const [folders, setFolders] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3333/download')
+    fetch('http://localhost:3333/folders')
       .then(response => response.json())
       .then(data => {
-        setPdfFiles(data.pdfFiles)
+        setFolders(data.folders);
       })
       .catch(error => console.error('Erro:', error));
   }, []);
@@ -23,14 +23,25 @@ export default function Editals() {
         <h1 className="text-2xl md:text-4xl mt-4">Editais - Seed</h1>
       </div>
       <div className="mt-8">
-        {pdfFiles.map((pdf, index) => (
+        {folders.map((folder, index) => (
           <div key={index} className="mb-2">
             <Link className="text-blue-600 hover:underline"
-              href={`http://localhost:3333/download/${pdf}`}>
-                {`${pdf}`}
+              target='_blank'
+              href={`http://localhost:3000/editais/${folder}`}>
+                {`${folder}`}
             </Link>
           </div>
         ))}
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 bg-gray-200 p-4 text-center">
+        <span>
+          É administrador? Faça login {}
+          <Link href="/admin"
+            className='text-purple-600 decoration-sky-500 hover:underline'>
+              aqui
+            </Link>
+          {} para adicionar novos editais.
+        </span>
       </div>
     </div>
   );
