@@ -26,7 +26,6 @@ export default function Editais() {
         {folders.map((folder, index) => (
           <div key={index} className="mb-2">
             <Link className="text-blue-600 hover:underline"
-              target='_blank'
               href={`http://localhost:3000/editais/${folder}`}>
                 {`${folder}`}
             </Link>

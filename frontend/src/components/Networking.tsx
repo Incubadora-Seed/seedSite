@@ -4,18 +4,21 @@ import Image from 'next/image';
 export default function Networking() {
   return (
     <>
-      <div className="mt-12 relative w-full h-full">
-        <video autoPlay loop className="w-full h-2/3 object-cover max-w-full">
-          <source src="/network.mp4" type="video/mp4" />
-          Seu navegador não suporta a exibição de vídeos em HTML5.
+      <div className="mt-12 relative w-full h-screen">
+        <video autoPlay loop className="w-full h-full object-cover max-w-full">
+          <source src="/net.mp4" type="video/mp4" />
         </video>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-          <h2 className="text-2xl mt-12 sm:text-2xl md:text-3xl lg:text-7xl font-bold">
-            Networking é essencial para o sucesso
+          <h2 className="mt-12 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-4xl font-bold">
+            Networking é {}
+            <span className='text-purple-400'>
+              essencial
+            </span>
+            {} para o sucesso
           </h2>
           <button className="text-xl sm:text-3xl md:text-4xl lg:text-5xl p-8 mt-12 bg-blue-500 rounded-lg bg-purple-500 hover:bg-purple-700 transition duration-300 cursor-pointer">
             <Link href='/network'>
-              Conectar-se
+              Pesquisar
             </Link>
           </button>
         </div>

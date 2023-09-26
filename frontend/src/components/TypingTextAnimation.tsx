@@ -14,18 +14,14 @@ export default function TypingTextAnimation() {
                     'Networking abre portas',
                     1000,
                     'A sorte favorece os corajosos',
+                    1000,
+                    'Quer algo que nunca teve? Faça algo que nunca fez',
                     1000
                 ]}
                 wrapper="span"
                 speed={10}
-                style={{
-                    fontSize: '3rem',
-                    display: 'inline-block',
-                    marginTop: '50vh',
-                    marginBottom: '50vh'
-                }}
                 repeat={Infinity}
-                className=''
+                className='mt-[50vh] mb-[50vh] inline-block xl:text-5xl md:text-4xl sm:text-3xl text-2xl'
             />
         </div>
     )

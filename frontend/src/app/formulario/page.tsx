@@ -10,7 +10,7 @@ export default function FormPage() {
             Formulário de Contato
           </h1>
           <form
-            action="https://formsubmit.co/rafaelrodriguesmacedo2004@gmail.com"
+            action="https://formsubmit.co/sg-incubadora@ifsul.edu.br.com"
             method="POST"
             className="space-y-4"
           >
@@ -27,7 +27,7 @@ export default function FormPage() {
             <div className="flex flex-col">
               <input
                 type="text"
-                name="subject"
+                name="Assunto"
                 id="subject"
                 required
                 placeholder="Assunto"
@@ -36,7 +36,7 @@ export default function FormPage() {
             </div>
             <div className="flex flex-col">
               <textarea
-                name="message"
+                name="Mensagem"
                 id="message"
                 required
                 placeholder="Mensagem"
