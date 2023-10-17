@@ -47,17 +47,14 @@ export default function Header() {
           />
         </Link>
         <div className="hidden lg:flex ml-auto mr-8 gap-14 items-center">
-          <Link href="/editais" className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl">
+          <Link href="/editais" className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl hover:bg-gray-300 rounded p-1">
             Editais
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
-          <Link href="/#networking" passHref className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl" data-target="networking">
+          <Link href="/#networking" passHref className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl hover:bg-gray-300 rounded p-1" data-target="networking">
             Network
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
-          <Link href="/#support" passHref className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl" data-target="support">
+          <Link href="/#support" passHref className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl hover:bg-gray-300 rounded p-1" data-target="support">
             Suporte
-            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-black"></span>
           </Link>
         </div>
         <div className="ml-auto mr-4 lg:hidden">

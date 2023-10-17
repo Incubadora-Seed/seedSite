@@ -10,7 +10,7 @@ export default function FormPage() {
             Formulário de Contato
           </h1>
           <form
-            action="https://formsubmit.co/sg-incubadora@ifsul.edu.br.com"
+            action="https://formsubmit.co/sg-incubadora@ifsul.edu.br"
             method="POST"
             className="space-y-4"
           >

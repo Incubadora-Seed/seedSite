@@ -26,12 +26,12 @@ export default function Networking() {
       <div className="flex flex-col items-center justify-center p-10">
         <div className="max-w-4xl text-center mb-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
-            Engage com outras empresas do Brasil todo
+            Engage com outras empresas incubadas
           </h2>
           <p className="text-md md:text-lg lg:text-xl xl:text-2xl text-gray-600">
             Esteja você procurando construir sua comunidade local de startups, interagir com as principais startups
-            do sul do Brasil ou investir em startups que estão causando impacto em seu setor, Seed tem esses contatos
-            para você se envolver com startups que se alinham aos seus objetivos de negócios.
+            incubadas ou investir em startups que estão causando impacto em seu setor, Seed tem esses contatos
+            para você se envolver com as empresas que se alinham aos seus objetivos de negócios.
           </p>
         </div>
         <div className="w-full max-w-md">

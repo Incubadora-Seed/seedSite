@@ -20,7 +20,7 @@ export default function WhoWeAre() {
         src: "/rafael.jpg",
         alt: "Imagem Rafael",
         title: "Rafael Macedo",
-      description: "Bolsista e Programador",
+      description: "Bolsista da Seed e Programador",
       linkedin: "https://www.linkedin.com/in/rafael-macedo-656057216/",
     },
     {
@@ -55,14 +55,14 @@ export default function WhoWeAre() {
         src: "/valter.jpg",
         alt: "Imagem Valter",
         title: "Valter Fernandes",
-      description: "Chefe do Departamento de Ensino",
+      description: "Chefe do Departamento de Ensino do IFSul Sapiranga",
          linkedin: "https://www.linkedin.com/in/valter-lenine-5b13554b/",
     },
     {
         src: "/marta.jpg",
         alt: "Imagem Marta",
         title: "Marta Tessman",
-        description: "Diretora Geral e Pesquisadora",
+        description: "Diretora Geral do IFSul Sapiranga e Pesquisadora",
         linkedin: "https://www.linkedin.com/in/marta-tessmann-09858743/",
     }
   ];
@@ -73,15 +73,15 @@ export default function WhoWeAre() {
       <div className="grid gap-12 md:grid-cols-1 xl:grid-cols-3 w-full mx-auto my-12 p-8">
         {contributors.map((contributor, index) => (
           <div key={index} className="text-left flex items-center">
-            <div className="shadow-2xl rounded-full shadow-black">
+            <div className="shadow-2xl rounded-full shadow-black" style={{ minWidth: '150px', minHeight: '150px' }}>
               <Image
                 src={contributor.src}
                 alt={contributor.alt}
-                width={175}
-                height={175}
-                className="rounded-full mt-0" />
+                width={150}
+                height={150}
+                className="rounded-full mt-0"
+              />
             </div>
-            {/* End images */}
 
             {/* Description and title */}
             <div className="ml-12">
@@ -106,7 +106,6 @@ export default function WhoWeAre() {
               </div>
             </div>
             {/* End description and title */}
-
           </div>
         ))}
       </div>
