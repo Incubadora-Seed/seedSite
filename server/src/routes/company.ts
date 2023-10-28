@@ -23,6 +23,37 @@ export async function companyRoutes(server: FastifyInstance) {
         return rows;
     });
 
+    server.get('/company/:cnpj/:email/:telefone/:categoria/:nome_fantasia', async (request, reply) => {
+        try {
+            // Valide os parâmetros recebidos
+            const paramsSchema = z.object({
+                cnpj: z.string(),
+                email: z.string(), 
+                telefone: z.string(), 
+                categoria: z.string(), 
+                nome_fantasia: z.string()
+            });
+            const { cnpj, nome_fantasia, categoria, telefone, email } = paramsSchema.parse(request.params);
+    
+            // Construa a query SQL
+            const query = 'SELECT * FROM company WHERE nome_fantasia LIKE $1 OR cnpj LIKE $2 OR telefone LIKE $3 OR categoria LIKE $4 OR email LIKE $5';
+    
+            // Execute a query no banco de dados
+            const { rows, rowCount } = await pool.query(query, [`%${nome_fantasia}%`, `%${cnpj}%`, `%${telefone}%`, `%${categoria}%`, `%${email}%`]);
+    
+            // Verifique se há resultados
+            if (rowCount === 0) {
+                return reply.status(404).send('Empresa não encontrada');
+            }
+    
+            // Retorne os resultados (ou faça o que for apropriado)
+            return rows; // Isso irá retornar os dados das empresas encontradas
+        } catch (error) {
+            console.error('Erro:', error);
+            return reply.status(500).send('Erro interno do servidor');
+        }
+    });
+
     server.get('/company/:cnpj', async (request, reply) => {
         const paramsSchema = z.object({
             cnpj: z.string(),
@@ -34,7 +65,7 @@ export async function companyRoutes(server: FastifyInstance) {
         const { rows } = await pool.query(query, [cnpj]);
 
         if (rows.length === 0) {
-            return reply.status(404).send('User not found');
+            return reply.status(404).send('Empresa não encontrada');
         }
 
         return rows[0];
@@ -105,26 +136,5 @@ export async function companyRoutes(server: FastifyInstance) {
 
         return 'Empresa deletada';
     });
-
-    // route for search bar in frontend
-    server.get('/company/:cnpj:email:telefone:categoria:nome_fantasia', async (request, reply) => {
-        const paramsSchema = z.object({
-            cnpj: z.string(),
-            email: z.string(), 
-            telefone: z.number(),
-            categoria: z.string(), 
-            nome_fantasia: z.string()
-        });
-
-        const { cnpj, nome_fantasia, categoria, telefone, email } = paramsSchema.parse(request.params);
-
-        const query = 'SELECT * FROM company where nome_fantalia like $1 or cnpj like $2 or telefone like $3 or categoria like $4 or email like $5'
-        const { rowCount } = await pool.query(query, [nome_fantasia, cnpj, telefone, categoria, email]);
-
-        if (rowCount === 0) {
-            return reply.status(404).send('Empresa não encontrada');
-        }
-
-        return 'Nenhuma empresa pesquisada.';
-    })
+    
 }
