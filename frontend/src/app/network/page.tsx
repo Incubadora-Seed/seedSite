@@ -12,8 +12,9 @@ interface Company {
 }
 
 export default function NetworkPage() {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [searchResults, setSearchResults] = useState<Company[]>([]);
+    const [searchTerm, setSearchTerm] = useState(''); // state for search term
+    const [searchResults, setSearchResults] = useState<Company[]>([]); // state for search results
+    const [allCompanies, setAllCompanies] = useState<Company[]>([]); // state for all companies data
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         const term = event.target.value;
@@ -27,13 +28,21 @@ export default function NetworkPage() {
                 })
                 .catch(error => console.error('Erro', error));
         } else {
-            setSearchResults([]);
+            setSearchResults(allCompanies); // Se o termo de busca está vazio, exiba todas as empresas
         }
     }
 
+    // useEffect for all companies data when render the page    
     useEffect(() => {
-        handleSearch({ target: { value: searchTerm } } as React.ChangeEvent<HTMLInputElement>);
-    }, [searchTerm]);
+        fetch('http://localhost:3333/company')
+            .then(response => response.json())
+            .then(data => {
+                setSearchResults(data);
+                setAllCompanies(data); // save all companies data in state allCompanies
+            })
+            .catch(error => console.error('Erro', error));
+    }, []); // empty array to run only once
+
 
     return (
         <>
@@ -45,13 +54,13 @@ export default function NetworkPage() {
                     </div>
                 </form>
             </div>
-            <ul className='mt-[50vh]'>
+            <ul className='mt-8 space-y-4'>
                 {searchResults.map(company => (
-                    <li key={company.id}>
-                        <strong>{company.nome_fantasia}</strong><br />
-                        Área de Atuação: {company.categoria}<br />
-                        Email: {company.email}<br />
-                        Telefone: {company.telefone}
+                    <li key={company.id} className='bg-white p-6 rounded shadow-md'>
+                        <h2 className='text-xl font-bold'>{company.nome_fantasia}</h2>
+                        <p className='text-gray-700'>Área de Atuação: {company.categoria}</p>
+                        <p className='text-gray-700'>Email: {company.email}</p>
+                        <p className='text-gray-700'>Telefone: {company.telefone}</p>
                     </li>
                 ))}
             </ul>
