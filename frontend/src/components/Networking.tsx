@@ -16,7 +16,8 @@ export default function Networking() {
             </span>
             {} para o sucesso
           </h2>
-          <button className="text-xl sm:text-3xl md:text-4xl lg:text-5xl p-8 mt-12 bg-blue-500 rounded-lg bg-purple-500 hover:bg-purple-700 transition duration-300 cursor-pointer">
+          <button className="text-xl sm:text-3xl md:text-4xl lg:text-5xl p-8 mt-12 bg-blue-500 rounded-lg bg-purple-500 
+          hover:bg-purple-700 transition duration-300 cursor-pointer">
             <Link href='/network'>
               Pesquisar
             </Link>

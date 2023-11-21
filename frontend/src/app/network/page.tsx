@@ -19,16 +19,31 @@ export default function NetworkPage() {
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         const term = event.target.value;
         setSearchTerm(term);
-
+    
         if (term.trim() !== '') {
-            fetch(`http://localhost:3333/company/${term}/${term}/${term}/${term}/${term}`)
+            fetch(`http://localhost:3333/company`)
                 .then(response => response.json())
                 .then(data => {
-                    setSearchResults(data);
+                    const results = data.filter((company: Company) => {
+                        return (
+                            company &&
+                            company.nome_fantasia &&
+                            company.nome_fantasia.toLowerCase().includes(term.toLowerCase())
+                        );
+                    });
+    
+                    if (results.length === 0) {
+                        
+                        setSearchResults([]);
+                    } else {
+                        setSearchResults(results);
+                    }
                 })
-                .catch(error => console.error('Erro', error));
+                .catch(error => {
+                    console.error('Erro', error);
+                });
         } else {
-            setSearchResults(allCompanies); // Se o termo de busca está vazio, exiba todas as empresas
+            setSearchResults(allCompanies); 
         }
     }
 
@@ -50,20 +65,26 @@ export default function NetworkPage() {
             <div className='block text-center'>
                 <form className='mt-[20vh]'>   
                     <div className="relative">
-                        <input type="search" id="default-search" className=" w-1/3 p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Pesquise por categoria ou cidade" required onChange={handleSearch} />
+                        <input type="search" id="default-search" className=" lg:w-1/3 md:w-1/2 sm:w-1/2 p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Pesquise por área ou nome da empresa" onChange={handleSearch} />
                     </div>
                 </form>
             </div>
-            <ul className='mt-8 space-y-4'>
-                {searchResults.map(company => (
-                    <li key={company.id} className='bg-white p-6 rounded shadow-md'>
-                        <h2 className='text-xl font-bold'>{company.nome_fantasia}</h2>
-                        <p className='text-gray-700'>Área de Atuação: {company.categoria}</p>
-                        <p className='text-gray-700'>Email: {company.email}</p>
-                        <p className='text-gray-700'>Telefone: {company.telefone}</p>
-                    </li>
-                ))}
-            </ul>
+            <div className="flex justify-center mt-20 h-screen">
+                <ul className="">
+                    {searchResults.length === 0 ? (
+                        <li className="text-gray-500">Nenhuma empresa encontrada</li>
+                    ) : (
+                        searchResults.map((company: Company) => (
+                            <li key={company.id} className='bg-white p-4 rounded shadow-md mb-4'>
+                                <h2 className='text-xl font-bold'>{company.nome_fantasia}</h2>
+                                <p className='text-gray-700'>Área de Atuação: {company.categoria}</p>
+                                <p className='text-gray-700'>Email: {company.email}</p>
+                                <p className='text-gray-700'>Telefone: {company.telefone}</p>
+                            </li>
+                        ))
+                    )}
+                </ul>
+            </div>
         </>    
     );
 }
