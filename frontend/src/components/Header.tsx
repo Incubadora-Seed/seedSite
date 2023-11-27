@@ -47,9 +47,9 @@ export default function Header() {
           />
         </Link>
         <div className="hidden lg:flex ml-auto mr-8 gap-14 items-center">
-          <Link href="/editais" className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl hover:bg-gray-300 rounded p-1">
+          <a href="/editais" className="group transition duration-300 text-sm sm:text-base md:text-lg lg:text-xl hover:bg-gray-300 rounded p-1">
             Editais
-          </Link>
+          </a>
           <Link href="/#networking" passHref className="group transition duration-300 smooth-scroll text-sm sm:text-base md:text-lg lg:text-xl hover:bg-gray-300 rounded p-1" data-target="networking">
             Network
           </Link>

@@ -26,7 +26,7 @@ export default function Editals() {
         {pdfFiles.map((pdf, index) => (
           <div key={index} className="mb-2">
             <Link className="text-blue-600 hover:underline"
-              href={`http://localhost:3333/download/${pdf}`}>
+              href={`http://localhost:3333/download/2025/${pdf}`} target='_blank'>
                 {`${pdf}`}
             </Link>
           </div>
