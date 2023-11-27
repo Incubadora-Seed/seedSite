@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { api } from '@/lib/api';
+import Cookie from 'cookies-ts';
 import { useRouter } from 'next/navigation';
 
 export default function AdminPage() {
@@ -9,24 +10,36 @@ export default function AdminPage() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
+  const cookies = new Cookie();
 
   async function handleLogin() {
     try {
+      if (cookies.get('token')) {
+        router.push('/db');
+        return; 
+      }
+  
       const response = await api.post('/login', {
         username,
         password,
       });
-
-      if (response.status === 200) {
-        router.push('/db');
-      } else {
-        alert('Login inválido!');
-        console.log('Login inválido!');
+  
+      const token = response.data.token;
+  
+      if (!token) {
+        alert('Erro ao efetuar login. Por favor, verifique suas credenciais.');
+        return;
       }
+  
+      cookies.set('token', token);
+  
+      router.push('/db');
     } catch (error) {
+      alert('Erro ao efetuar login. Por favor, tente novamente mais tarde.');
       console.error('Erro ao efetuar login:', error);
     }
   }
+  
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
