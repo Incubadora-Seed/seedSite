@@ -1,10 +1,11 @@
 import { FastifyInstance } from 'fastify';
-import jwt from 'jsonwebtoken';
+import * as cookie from 'cookie';
+import * as jwt from 'jsonwebtoken';
 require('dotenv').config();
 
 interface LoginRequestBody {
-    username: string;
-    password: string;
+  username: string;
+  password: string;
 }
 
 export async function loginRoutes(server: FastifyInstance) {
@@ -13,20 +14,23 @@ export async function loginRoutes(server: FastifyInstance) {
 
     server.post('/login', async (request, reply) => {
         const { username, password }: LoginRequestBody = request.body as LoginRequestBody;
-        const jwtSecret = process.env.JWT_SECRET!; // ! ensures that jwt secret is not null
 
         if (username === adminUsername && password === adminPassword) {
-            const payload = {
-                username, 
-                password,
-                isAdmin: true,
-            };
+            if (process.env.JWT_SECRET) {
+                const token = jwt.sign({ username }, process.env.JWT_SECRET, {
+                    expiresIn: '1h',
+                });
 
-            const token = jwt.sign(payload, jwtSecret, { expiresIn: '4h' });
+                const cookieHeader = cookie.serialize('token', token, {
+                    maxAge: 60 * 60, // 1 hour
+                    path: '/',
+                    sameSite: true,
+                });
 
-            reply.status(200).send({ message: 'Login successful', token });
-        } else {
-            reply.status(401).send({ message: 'Invalid credentials' });
+                reply.header('Set-Cookie', cookieHeader).send({ token });
+            } else {
+                reply.status(500).send({ message: 'Internal server error' });
+            }
         }
     });
 }

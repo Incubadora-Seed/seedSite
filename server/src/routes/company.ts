@@ -23,36 +23,30 @@ export async function companyRoutes(server: FastifyInstance) {
         return rows;
     });
 
-    server.get('/company/:cnpj/:email/:telefone/:categoria/:nome_fantasia', async (request, reply) => {
+    server.get('/company/search/:query', async (request, reply) => {
         try {
-            // Valide os parâmetros recebidos
-            const paramsSchema = z.object({
-                cnpj: z.string(),
-                email: z.string(), 
-                telefone: z.string(), 
-                categoria: z.string(), 
-                nome_fantasia: z.string()
-            });
-            const { cnpj, nome_fantasia, categoria, telefone, email } = paramsSchema.parse(request.params);
-    
-            // Construa a query SQL
-            const query = 'SELECT * FROM company WHERE nome_fantasia LIKE $1 OR cnpj LIKE $2 OR telefone LIKE $3 OR categoria LIKE $4 OR email LIKE $5';
-    
-            // Execute a query no banco de dados
-            const { rows, rowCount } = await pool.query(query, [`%${nome_fantasia}%`, `%${cnpj}%`, `%${telefone}%`, `%${categoria}%`, `%${email}%`]);
-    
-            // Verifique se há resultados
+            const query = request.query;
+
+            const searchQuery = `
+                SELECT * FROM empresas 
+                WHERE nome_fantasia LIKE '$1' 
+                OR cnpj LIKE $2 
+                OR telefone LIKE $3 
+                OR categoria LIKE '$4' 
+                OR email LIKE '$5'`;
+
+            const { rows, rowCount } = await pool.query(searchQuery, [`%${query}%`, `%${query}%`, `%${query}%`, `%${query}%`, `%${query}%`]);
+
             if (rowCount === 0) {
-                return reply.status(404).send('Empresa não encontrada');
+                return reply.status(404).send('Nenhuma empresa encontrada');
             }
-    
-            // Retorne os resultados (ou faça o que for apropriado)
-            return rows; // Isso irá retornar os dados das empresas encontradas
-        } catch (error) {
-            console.error('Erro:', error);
+
+            return rows;
+        } catch (error) {   
+            console.error(error);
             return reply.status(500).send('Erro interno do servidor');
         }
-    });
+    });  
 
     server.get('/company/:cnpj', async (request, reply) => {
         const paramsSchema = z.object({
