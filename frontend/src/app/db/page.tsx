@@ -5,7 +5,7 @@ import { api } from '@/lib/api';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import Select from 'react-select';
 import Cookie from 'cookies-ts';
-import Image from 'next/image';
+import HeaderHome from '@/components/HeaderHome';
 import { useRouter } from 'next/navigation';
 
 export default function CompanyManagement() {
@@ -181,13 +181,7 @@ export default function CompanyManagement() {
 
   return (
     <div className="container mx-auto px-8 bg-white rounded-md">
-      <Image
-        src="/Logotipo.png"
-        alt="Logo"
-        width={250}
-        height={250}
-        className="mx-auto"
-      />
+      <HeaderHome /> 
       <h2 className="text-2xl font-bold mb-4">Upload de Edital PDF</h2>
         <div className="mb-4">
           <input

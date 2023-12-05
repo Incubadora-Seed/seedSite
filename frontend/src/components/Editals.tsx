@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Header from './Header';
+import HeaderHome from './HeaderHome';
 
 export default function Editais() {
   const [folders, setFolders] = useState([]);
@@ -17,9 +17,9 @@ export default function Editais() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <Header />
-      <div className="mt-8 text-center">
+    <div className="flex flex-col items-center justify-center">
+      <HeaderHome />
+      <div className="mt-[20vh] text-center">
         <h1 className="text-2xl md:text-4xl mt-4">Editais - Seed</h1>
       </div>
       <div className="mt-8">

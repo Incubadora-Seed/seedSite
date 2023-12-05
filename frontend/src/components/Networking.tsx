@@ -31,7 +31,7 @@ export default function Networking() {
           </h2>
           <p className="text-md md:text-lg lg:text-xl xl:text-2xl text-gray-600">
             Esteja você procurando construir sua comunidade local de startups, interagir com as principais startups
-            incubadas ou investir em startups que estão causando impacto em seu setor, Seed tem esses contatos
+            incubadas ou investir em startups que estão causando impacto em seu setor? Seed tem esses contatos
             para você se envolver com as empresas que se alinham aos seus objetivos de negócios.
           </p>
         </div>

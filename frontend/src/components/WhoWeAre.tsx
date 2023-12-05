@@ -20,7 +20,7 @@ export default function WhoWeAre() {
         src: "/rafael.jpg",
         alt: "Imagem Rafael",
         title: "Rafael Macedo",
-      description: "Bolsista da Seed e Programador",
+      description: "Ex-Bolsista da Seed e Programador do Website",
       linkedin: "https://www.linkedin.com/in/rafael-macedo-656057216/",
     },
     {

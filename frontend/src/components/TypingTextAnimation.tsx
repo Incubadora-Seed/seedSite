@@ -21,6 +21,7 @@ export default function TypingTextAnimation() {
                 wrapper="span"
                 speed={10}
                 repeat={Infinity}
+                deletionSpeed={50}
                 className='mt-[50vh] mb-[50vh] inline-block xl:text-5xl md:text-4xl sm:text-3xl text-2xl'
             />
         </div>
