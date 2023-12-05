@@ -1,9 +1,9 @@
-import Header from "@/components/Header";
+import HeaderHome from '@/components/HeaderHome';
 
 export default function FormPage() {
   return (
     <>
-      <Header />
+      <HeaderHome />
       <section className="bg-gray-100 min-h-screen flex items-center justify-center ">
         <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
           <h1 className="text-4xl font-bold text-center mb-6">

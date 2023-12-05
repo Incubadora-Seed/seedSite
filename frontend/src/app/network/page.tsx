@@ -1,6 +1,6 @@
 'use client'
 
-import Header from '@/components/Header';
+import HeaderHome from '@/components/HeaderHome';
 import { useState, useEffect } from 'react';
 
 interface Company {
@@ -61,7 +61,7 @@ export default function NetworkPage() {
 
     return (
         <>
-            <Header />
+            <HeaderHome />
             <div className='block text-center'>
                 <form className='mt-[20vh]'>   
                     <div className="relative">

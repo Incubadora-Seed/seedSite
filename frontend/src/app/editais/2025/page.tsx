@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Header from '@/components/Header';
+import HeaderHome from '@/components/HeaderHome';
 
 export default function Editals() {
   const [pdfFiles, setPdfFiles] = useState([]);
@@ -18,7 +18,7 @@ export default function Editals() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <Header />
+      <HeaderHome />
       <div className="mt-8 text-center">
         <h1 className="text-2xl md:text-4xl mt-4">Editais - Seed</h1>
       </div>

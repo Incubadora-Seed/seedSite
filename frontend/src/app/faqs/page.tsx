@@ -1,6 +1,6 @@
 'use client'
 
-import Header from "@/components/Header";
+import HeaderHome from '@/components/HeaderHome';
 import React, { useState } from "react";
 
 interface FAQ {
@@ -66,7 +66,7 @@ export default function FAQs() {
 
     return (
         <>
-            <Header />
+            <HeaderHome />
             <div className="max-w-md mx-auto p-4 my-[20vh]">
                 <h2 className="text-2xl font-bold text-center mb-8 text-purple-800">
                     Perguntas Frequentes

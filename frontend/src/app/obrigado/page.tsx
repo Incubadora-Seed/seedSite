@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "@/components/Footer";
-import Header from "../../components/Header";
+import HeaderHome from '@/components/HeaderHome';
 import Image from "next/image";
 
 export default function ObrigadoPage() {
     return (
         <div className="flex flex-col min-h-screen">
 
-            <Header />
+            <HeaderHome />
 
             <section className="flex-1 flex flex-col justify-center items-center p-4 text-center">
                 <Image
