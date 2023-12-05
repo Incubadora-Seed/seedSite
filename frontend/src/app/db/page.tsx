@@ -6,6 +6,7 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import Select from 'react-select';
 import Cookie from 'cookies-ts';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function CompanyManagement() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,70 @@ export default function CompanyManagement() {
   const [searchQuery, setSearchQuery] = useState('');
   const [companies, setCompanies] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState(null);
+
+  const fileType = ['application/pdf'];
+  const [file, setFile] = useState < File | null > (null);
+
+  const useCustomLocalStorage = (key: string) => {
+    const [value, setValue] = useState(localStorage.getItem(key));
+
+    const setItem = (newValue: any) => {
+      localStorage.setItem(key, newValue);
+      setValue(newValue);
+    };
+
+    return [value, setItem];
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = event.target.files?.[0];
+    if (selectedFile) {
+      if (selectedFile && fileType.includes(selectedFile.type)) {
+        setFile(selectedFile);
+        console.log("Selecionado arquivo PDF")
+      } else {
+        alert('Por favor, selecione um arquivo PDF.');
+      }
+    }
+  };
+
+  const handleUpload = async () => {
+    if (file) {
+      const isLoggedIn = cookies.get('token');
+
+      if (!isLoggedIn) {
+        router.push('/admin');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        console.log("Tentando enviar arquivo PDF para o servidor");
+        console.log("Arquivo PDF: ", file);
+        console.log("Form Data: ", formData);
+
+        const response = await api.post('/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+
+        console.log("Arquivo PDF enviado para o servidor");
+
+        if (response.status === 200) {
+          alert('Upload do arquivo PDF concluído com sucesso!');
+        } else {
+          alert('Erro ao fazer o upload do arquivo PDF.');
+        }
+      } catch (error) {
+        console.error('Erro ao fazer o upload do arquivo PDF:', error);
+      }
+    }
+  };
+  
+  const router = useRouter();
 
   const cookies = new Cookie();
 
@@ -123,6 +188,31 @@ export default function CompanyManagement() {
         height={250}
         className="mx-auto"
       />
+      <h2 className="text-2xl font-bold mb-4">Upload de Edital PDF</h2>
+        <div className="mb-4">
+          <input
+            type="file"
+            accept=".pdf"
+            onChange={handleFileChange}
+            className="border rounded-md px-4 py-2 w-full"
+          />
+        </div>
+        <div className="mb-4">
+          {file && (
+            <p className="text-green-500">
+              Arquivo selecionado: {file.name}
+            </p>
+          )}
+        </div>
+        <div className="mb-4">
+          <button
+            onClick={handleUpload}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            disabled={!file}
+          >
+            Enviar Arquivo
+          </button>
+        </div>
       <h2 className="text-3xl text-center font-semibold mb-4">Management - Empresas</h2>
       <div className="mb-8">
         <hr />
