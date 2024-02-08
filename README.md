@@ -1,9 +1,8 @@
 # Como instalar o projeto
 
 ### NodeJS
-- O projeto usa o NodeJS na versão 18.16. Caso esteja usando outra versão do NodeJS precise instalar outra versão,
-recomando instalar o [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager) para uma maior facilidade na hora da instalação e mudança de diferentes
-versões do NodeJS.
+- O projeto usa o NodeJS na versão 18.16. Caso esteja usando outra versão do NodeJS e precise instalar outra versão,
+recomando instalar o [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager) para uma maior facilidade na hora da instalação e mudança de diferentes versões do NodeJS.
 
 ### Frontend
 
