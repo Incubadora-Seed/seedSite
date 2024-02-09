@@ -12,7 +12,7 @@ recomando instalar o [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager)
 ### Backend
 - Para instalar o frontend, você deve entrar na pasta `server` e rodar os seguintes comandos abaixo:
   - `npm i` para instalar todas as dependências contidas dentro do arquivo `package.json`
-  - Aṕos isso, crie o arquivo `.env` na pasta raiz e coloque as seguintes informações:
+  - Aṕos isso, crie o arquivo `.env` na pasta server e coloque as seguintes informações:
     ```
       DB_USER = USUARIO_DO_BANCO
       DB_HOST = URL_ONDE_O_BANCO_ESTA_RODANDO
@@ -40,3 +40,7 @@ recomando instalar o [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager)
       );
       
     ```
+
+### Executar programa
+- Posicionar-se na pasta frontend e rodar o comando "npm run dev"
+- Após isso, posicionar-se na pasta server e rodar "npm run dev"
