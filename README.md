@@ -44,3 +44,4 @@ recomando instalar o [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager)
 ### Executar programa
 - Posicionar-se na pasta frontend e rodar o comando "npm run dev"
 - Após isso, posicionar-se na pasta server e rodar "npm run dev"
+- Se tudo ocorreu como esperado, o site estará operacional de maneira local na porta 3000, "localhost:3000"
