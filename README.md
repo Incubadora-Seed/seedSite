@@ -31,7 +31,7 @@ recomando instalar o [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager)
     ```
       CREATE TABLE empresas (
         id UUID PRIMARY KEY,
-        nome_fantasia,
+        nome_fantasia VARCHAR(100),
         cnpj VARCHAR(18),
         telefone VARCHAR(20),
         razao_social VARCHAR(255),
